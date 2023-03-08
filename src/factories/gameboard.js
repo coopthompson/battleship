@@ -56,17 +56,29 @@ const Board = () => {
         boardContents[array[0]][array[1]] = 1
     }
 
+    const checkBoard = (array) => {
+        if (boardContents[array[0]][array[1]] === 1) {return true}
+        boardContents[array[0]][array[1]] = 2
+        return false;
+    }
+
     const placeShip = (Ship) => {
         let shipArray = Ship.returnArray();
         for (let i = 0; i < shipArray.length; i++ ) {
-            let place = shipArray[i].split('')
-            let coords = convertPlace(place);
-            updateBoard(coords);
+            let place = shipArray[i].split('');
+            let spot = convertPlace(place);
+            updateBoard(spot);
         }
 
     }
 
-    return { boardContents, placeShip }
+    const receiveAttack = (coords) => {
+        let place = coords.split('');
+        let spot = convertPlace(place);
+        return checkBoard(spot);
+    }
+
+    return { boardContents, placeShip, receiveAttack }
 }
 
 export default Board
