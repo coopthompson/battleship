@@ -57,8 +57,15 @@ const Board = () => {
     }
 
     const checkBoard = (array) => {
-        if (boardContents[array[0]][array[1]] === 1) {return true}
-        boardContents[array[0]][array[1]] = 2
+        if (boardContents[array[0]][array[1]] === 2 || boardContents[array[0]][array[1]] === 3) {
+            return 'You already tried that spot!'
+        }
+
+        if (boardContents[array[0]][array[1]] === 1) {
+            boardContents[array[0]][array[1]] = 2
+            return true;
+        }
+        boardContents[array[0]][array[1]] = 3
         return false;
     }
 
@@ -78,7 +85,19 @@ const Board = () => {
         return checkBoard(spot);
     }
 
-    return { boardContents, placeShip, receiveAttack }
+    const allSunk = () => {
+        for (let i = 0; i < boardContents.length; i++) {
+            let row = boardContents[i]
+
+            for(let j = 0; j < row.length; j++) {
+                if (row[j] === 1) {return false;}
+            }
+        }
+
+        return true;
+    }
+
+    return { boardContents, placeShip, receiveAttack, allSunk }
 }
 
 export default Board
