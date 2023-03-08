@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "test": "jest",
     "watch": "jest --watch"
   },
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/coopthompson/battleship#readme",
   "devDependencies": {
     "@babel/core": "^7.21.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
     "@babel/preset-env": "^7.20.2",
     "babel-jest": "^29.5.0",
     "identity-obj-proxy": "^3.0.0",

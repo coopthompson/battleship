@@ -31,9 +31,6 @@ const Ship = (shipArray) =>  {
     return { length: shipLength, hit, returnArray, isSunk}
 }
 
-const newShip = Ship(['hit', 'hit', 'hit', 'hit', 'E1'])
-
-console.log(newShip.isSunk())
 
 
-module.exports = Ship
+export default Ship

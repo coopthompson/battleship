@@ -1,5 +1,4 @@
-const Ship = require('./ship')
-
+import Ship from "../factories/ship";
 
 it('only hit parts of the array', () => {
     const ship1 = Ship(['A1','B1','C1','D1'])
