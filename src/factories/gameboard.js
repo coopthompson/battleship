@@ -2,6 +2,11 @@ const Board = () => {
     let boardContents = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
     
     const convertPlace = (array) => {
+        if(array.length === 3 && array[1] === '1' && array[2] === '0') {
+            array.pop();
+            array[1] = '0';
+        }
+
         if(array[0] === 'A') {
             array[0] = 0
         } else if (array[0] === 'B') {
@@ -44,7 +49,7 @@ const Board = () => {
             array[1] = 7
         } else if (array[1] === '9') {
             array[1] = 8
-        } else if (array[1] === '10') {
+        } else if (array[1] === '0') {
             array[1] = 9
         } else {
             return 'Please enter a number between 1 and 10'
