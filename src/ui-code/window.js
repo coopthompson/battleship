@@ -6,8 +6,8 @@ const New = () => {
 
         for (let c = 0; c < 100; c++) {
             let cell = document.createElement("div");
-            windowName.appendChild(cell).className = 'play-space';
-            cell.classList.add(`cell${c + d}`);
+            windowName.appendChild(cell).className = 'play';
+            cell.setAttribute('id',`cell${c + d}`);
         }
     
     }
@@ -20,7 +20,7 @@ const New = () => {
         for (let i = 0; i < 10 ; i++ ) {
             for (let j = 0; j < 10 ; j++) {
                 if (playerData[i][j] === 1) {
-                    let target = document.querySelector(`.cell${(i * 10) + j}`)
+                    let target = document.querySelector(`#cell${(i * 10) + j}`)
                     target.classList.add('selected')
                 }
 
@@ -31,7 +31,7 @@ const New = () => {
         for (let i = 0; i < 10 ; i++ ) {
             for (let j = 0; j < 10 ; j++) {
                 if (opData[i][j] === 1) {
-                    let target = document.querySelector(`.cell${(i * 10) + j + 100}`)
+                    let target = document.querySelector(`#cell${(i * 10) + j + 100}`)
                     target.classList.add('selected')
                 }
 
@@ -41,7 +41,13 @@ const New = () => {
 
     }
 
-    return { makeBoard, populate };
+    const getId = (e) => {
+        let id = e.target.id;
+        let num = id.replace(/^\D+/g, '')
+        return num;
+    }
+
+    return { makeBoard, populate, getId };
 }
 
 export default New;

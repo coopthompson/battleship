@@ -3,9 +3,11 @@ import Player from './factories/player';
 import Board from './factories/gameboard';
 import Ship from './factories/ship';
 
+
+const windowBox = document.querySelector('.windows-container');
 const myWindow = document.querySelector('.my-window');
 const opWindow = document.querySelector('.op-window');
-const startButton = document.querySelector('.start')
+const startButton = document.querySelector('.start');
 
 const newBoard = New();
 
@@ -26,7 +28,18 @@ startButton.addEventListener('click', () => {
     const player1 = Player(board1, board2);
 
     newBoard.populate(player1);
+
     
+
+    
+
+    windowBox.addEventListener('click', (e) => {
+        let attackTarget = newBoard.getId(e);
+        let convTarg = player1.converMove(attackTarget);
+        console.log(convTarg);
+        player1.makeMove(convTarg);
+        console.log(player1.opponentBoard)
+    })
 })
 
 
