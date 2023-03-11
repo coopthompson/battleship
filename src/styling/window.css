@@ -1,0 +1,38 @@
+:root, html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.windows-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.my-window, .op-window {
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.play-space {
+    border: solid black 1px;
+}
+
+.selected {
+    background-color: blue;
+}
